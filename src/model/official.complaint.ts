@@ -11,6 +11,8 @@ export interface IComplaint extends Document {
   };
   assignedTo: ObjectId;
   escalatedToDean?: ObjectId;
+  escalatedToChief?: ObjectId;
+
   type: string;
   status: string; // Status of the complaint (e.g., "Pending", "Resolved")
   createdAt: Date; // Timestamp when the complaint was filed
@@ -28,7 +30,6 @@ const ComplaintSchema: Schema = new Schema(
   {
     studentRefId: {
       type: Schema.Types.ObjectId,
-      ref: "Student",
       required: true,
     },
     subject: {
@@ -50,7 +51,10 @@ const ComplaintSchema: Schema = new Schema(
     escalatedToDean: {
       type: Schema.Types.ObjectId,
       ref: "Dean",
-      required: true,
+    },
+    escalatedToChief: {
+      type: Schema.Types.ObjectId,
+      ref: "Chief",
     },
     type: {
       type: String,
@@ -72,6 +76,7 @@ const ComplaintSchema: Schema = new Schema(
         "Resolved",
         "Closed",
         "Escalated To Dean",
+        "Escalated To Chief",
       ],
       default: "Pending",
       required: true,

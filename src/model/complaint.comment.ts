@@ -6,7 +6,7 @@ export interface IComment extends Document {
   studentRefId: ObjectId;
   HODId?: ObjectId;
   DeanId?: ObjectId;
-  ChiedId?: ObjectId;
+  ChiefId?: ObjectId;
   commentByHOD?: string;
   commentBYDean?: string;
   commentByChief?: string;
@@ -41,7 +41,7 @@ const ComplaintSchema: Schema = new Schema(
     commentByHOD: {
       type: String,
     },
-    commentBYChief: {
+    commentByChief: {
       type: String,
     },
     isDeleted: {

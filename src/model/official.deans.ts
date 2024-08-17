@@ -37,18 +37,23 @@ const AuthSchema: Schema = new Schema(
     },
     phone: {
       type: String,
+      required: true,
     },
     department: {
       type: String,
+      required: true,
+      unique: true,
     },
     dob: {
       type: Date,
+      required: true,
     },
     photo: {
       type: String,
     },
     name: {
       type: String,
+      required: true,
     },
     isDeleted: {
       type: Boolean,

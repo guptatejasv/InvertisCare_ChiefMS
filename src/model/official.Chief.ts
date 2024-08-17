@@ -1,7 +1,7 @@
 import { Schema, Document, model } from "mongoose";
 
-export interface ICheif extends Document {
-  ChiefId: string;
+export interface IChief extends Document {
+  HODId: string;
   email: string;
   password: string;
   phone?: string;
@@ -33,7 +33,7 @@ const AuthSchema: Schema = new Schema(
     },
     role: {
       type: String,
-      default: "HOD",
+      default: "Chief",
     },
     phone: {
       type: String,
@@ -66,4 +66,4 @@ const AuthSchema: Schema = new Schema(
     versionKey: false,
   }
 );
-export const Chief = model<ICheif>("Chief", AuthSchema);
+export const Chief = model<IChief>("Chief", AuthSchema);

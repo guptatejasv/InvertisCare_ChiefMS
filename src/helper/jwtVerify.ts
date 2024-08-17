@@ -1,7 +1,7 @@
 import jwt, { JwtPayload } from "jsonwebtoken";
 import dotenv from "dotenv";
 import { Request, Response, NextFunction } from "express";
-import { HOD } from "../model/official.HOD";
+import { Chief } from "../model/official.Chief";
 // import Redis from "ioredis";
 
 // const redis = new Redis();
@@ -35,7 +35,7 @@ export const verify_token = async (
       });
     }
 
-    const user = await HOD.findById(decode.id);
+    const user = await Chief.findById(decode.id);
 
     if (!user) {
       return res.status(400).json({ error: "Invalid user" });
