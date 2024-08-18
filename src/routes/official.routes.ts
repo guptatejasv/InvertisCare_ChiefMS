@@ -13,10 +13,14 @@ import { getComments } from "../controllers/Complaint/chief.getComments";
 import { addComment } from "../controllers/Complaint/chief.addComment";
 import { deleteComment } from "../controllers/Complaint/dean.deleteComment";
 import { updateComment } from "../controllers/Complaint/dean.updateComment";
+import { forgetPassword } from "../controllers/Authentication/chief.forgetPassword";
+import { resetPassword } from "../controllers/Authentication/chief.resetPassword";
 
 const router = Router();
 router.post("/chief/register", ChiefRegister);
 router.post("/chief/login", login);
+router.post("/chief/forgetPassword", forgetPassword);
+router.patch("/chief/resetPassword/:token", resetPassword);
 router.get("/chief/getProfile", verify_token, getProfile);
 router.get("/chief/updateProfile", verify_token, updateProfile);
 router.get("/chief/getNotifications", verify_token, getNotifications);
