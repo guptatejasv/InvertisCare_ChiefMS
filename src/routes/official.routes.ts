@@ -15,6 +15,7 @@ import { deleteComment } from "../controllers/Complaint/dean.deleteComment";
 import { updateComment } from "../controllers/Complaint/dean.updateComment";
 import { forgetPassword } from "../controllers/Authentication/chief.forgetPassword";
 import { resetPassword } from "../controllers/Authentication/chief.resetPassword";
+import { search } from "../controllers/chief.search";
 
 const router = Router();
 router.post("/chief/register", ChiefRegister);
@@ -32,4 +33,5 @@ router.post("/chief/addComment/:id", verify_token, addComment);
 router.get("/chief/getComments/:id", verify_token, getComments);
 router.delete("/chief/deleteComment/:id", verify_token, deleteComment);
 router.patch("/chief/updateComment/:id", verify_token, updateComment);
+router.post("/chief/search", verify_token, search);
 export default router;
